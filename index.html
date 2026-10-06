@@ -28,7 +28,22 @@
 
   <div class="corner-menu">
 
-    <div class="corner-circle"></div>
+    <!--
+      En la página principal:
+      círculo = indicador
+      triángulo = abrir información
+
+      En la pantalla negra:
+      círculo = volver
+      triángulo = indicador
+    -->
+
+    <button
+      class="corner-circle"
+      id="artistCircle"
+      aria-label="Volver"
+      type="button"
+    ></button>
 
     <button
       class="corner-triangle"
@@ -52,19 +67,9 @@
     aria-hidden="true"
   >
 
-    <button
-      class="artist-close"
-      id="artistClose"
-      aria-label="Cerrar"
-      type="button"
-    >
-      ×
-    </button>
-
-
     <div class="artist-panel-inner">
 
-      <div>
+      <div class="artist-main">
 
         <span class="artist-label">
           9021091c
@@ -413,10 +418,10 @@
          FOOTER
     ================================================== -->
 
-    <footer>
+    <footer id="contacto">
 
-      <div>
-        © 2026 9021091c
+      <div class="copyright">
+        © 2026 - 9021091c
       </div>
 
 
@@ -424,6 +429,14 @@
 
         <a href="mailto:lauren9021091@gmail.com">
           Correo
+        </a>
+
+        <a
+          href="https://wa.me/56961856698"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp
         </a>
 
         <a
@@ -454,7 +467,7 @@
     <button
       class="close"
       id="close"
-      aria-label="Cerrar"
+      aria-label="Cerrar obra"
       type="button"
     >
       ×
@@ -537,8 +550,10 @@
             Contacto
           </span>
 
+          <!-- AQUÍ SÍ aparece la dirección completa -->
+
           <a href="mailto:lauren9021091@gmail.com">
-            Correo
+            lauren9021091@gmail.com
           </a>
 
           <a
