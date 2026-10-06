@@ -213,6 +213,10 @@ artworkElements.forEach(
         const work =
           artworks[index];
 
+        if (!work) {
+          return;
+        }
+
         modalImage.src =
           "images/" + work.image;
 
@@ -236,7 +240,9 @@ artworkElements.forEach(
         modalYear.textContent =
           work.year;
 
-        modal.classList.add("active");
+        modal.classList.add(
+          "active"
+        );
 
         modal.setAttribute(
           "aria-hidden",
@@ -259,7 +265,9 @@ artworkElements.forEach(
 
 function closeModal() {
 
-  modal.classList.remove("active");
+  modal.classList.remove(
+    "active"
+  );
 
   modal.setAttribute(
     "aria-hidden",
@@ -279,7 +287,7 @@ closeButton.addEventListener(
 
 
 /* ==================================================
-   CERRAR OBRA AL HACER CLICK FUERA
+   CERRAR OBRA AL PULSAR FUERA
 ================================================== */
 
 modal.addEventListener(
@@ -312,16 +320,20 @@ const artistPanel =
     "artistPanel"
   );
 
-const artistClose =
+const artistCircle =
   document.getElementById(
-    "artistClose"
+    "artistCircle"
   );
 
+
+/* ==================================================
+   ABRIR INFORMACIÓN
+================================================== */
 
 function openArtistPanel() {
 
   /*
-    Si una obra estaba abierta,
+    Si hay una obra abierta,
     la cerramos primero.
   */
 
@@ -346,6 +358,10 @@ function openArtistPanel() {
 }
 
 
+/* ==================================================
+   CERRAR INFORMACIÓN
+================================================== */
+
 function closeArtistPanel() {
 
   artistPanel.classList.remove(
@@ -367,25 +383,53 @@ function closeArtistPanel() {
 }
 
 
-/*
-  TRIÁNGULO:
-  abre la información.
-*/
+/* ==================================================
+   TRIÁNGULO → ABRIR
+================================================== */
 
 artistToggle.addEventListener(
   "click",
-  openArtistPanel
+  () => {
+
+    /*
+      Si ya está abierto no hacemos
+      nada con el triángulo.
+      El círculo es el que vuelve.
+    */
+
+    if (
+      artistPanel.classList.contains(
+        "active"
+      )
+    ) {
+      return;
+    }
+
+    openArtistPanel();
+
+  }
 );
 
 
-/*
-  X:
-  cierra la información.
-*/
+/* ==================================================
+   CÍRCULO → VOLVER
+================================================== */
 
-artistClose.addEventListener(
+artistCircle.addEventListener(
   "click",
-  closeArtistPanel
+  () => {
+
+    if (
+      artistPanel.classList.contains(
+        "active"
+      )
+    ) {
+
+      closeArtistPanel();
+
+    }
+
+  }
 );
 
 
@@ -398,22 +442,31 @@ document.addEventListener(
   (event) => {
 
     if (
-      event.key === "Escape"
+      event.key !== "Escape"
+    ) {
+      return;
+    }
+
+
+    if (
+      artistPanel.classList.contains(
+        "active"
+      )
     ) {
 
-      if (
-        artistPanel.classList.contains(
-          "active"
-        )
-      ) {
+      closeArtistPanel();
 
-        closeArtistPanel();
+      return;
+    }
 
-      } else {
 
-        closeModal();
+    if (
+      modal.classList.contains(
+        "active"
+      )
+    ) {
 
-      }
+      closeModal();
 
     }
 
