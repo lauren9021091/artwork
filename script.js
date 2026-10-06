@@ -251,3 +251,40 @@ document.addEventListener("keydown", (event) => {
   }
 
 });
+/* =========================
+   PANEL DEL ARTISTA
+========================= */
+
+const artistToggle = document.getElementById("artistToggle");
+const artistPanel = document.getElementById("artistPanel");
+const artistClose = document.getElementById("artistClose");
+
+function openArtistPanel() {
+    artistPanel.classList.add("active");
+    artistPanel.setAttribute("aria-hidden", "false");
+
+    document.body.classList.add("artist-open");
+    document.body.style.overflow = "hidden";
+}
+
+function closeArtistPanel() {
+    artistPanel.classList.remove("active");
+    artistPanel.setAttribute("aria-hidden", "true");
+
+    document.body.classList.remove("artist-open");
+    document.body.style.overflow = "";
+}
+
+artistToggle.addEventListener("click", openArtistPanel);
+
+artistClose.addEventListener("click", closeArtistPanel);
+
+
+/* ESC PARA CERRAR */
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeArtistPanel();
+    }
+});
+
