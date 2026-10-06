@@ -364,103 +364,112 @@ footer a:hover {
 
 
 /* ==================================================
-   CÍRCULO + TRIÁNGULO
+CÍRCULO + TRIÁNGULO
 ================================================== */
 
 .corner-menu {
-
-  position: fixed;
-
-  top: 12px;
-  right: 18px;
-
-  width: 48px;
-  height: 48px;
-
-  z-index: 400;
-
-  pointer-events: none;
-
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    width: 75px;
+    height: 30px;
+    z-index: 1000;
+    pointer-events: none;
 }
-
 
 /* CÍRCULO */
 
 .corner-circle {
+    position: absolute;
+    top: 5px;
+    left: 0;
 
-  position: absolute;
+    width: 15px;
+    height: 15px;
 
-  top: 13px;
-  left: 0;
-
-  width: 9px;
-  height: 9px;
-
-  border-radius: 50%;
-
-  background: #111;
-
+    border: 1.5px solid #777;
+    border-radius: 50%;
+    background: transparent;
 }
-
 
 /* BOTÓN TRIÁNGULO */
 
 .corner-triangle {
+    position: absolute;
+    top: 0;
+    right: 0;
 
-  position: absolute;
+    width: 28px;
+    height: 24px;
 
-  top: 0;
-  right: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
 
-  width: 38px;
-  height: 38px;
+    cursor: pointer;
+    pointer-events: auto;
 
-  padding: 0;
-
-  border: none;
-
-  background: transparent;
-
-  overflow: hidden;
-
-  cursor: pointer;
-
-  pointer-events: auto;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-
-/* TRIÁNGULO REAL */
+/* TRIÁNGULO */
 
 .corner-triangle span {
+    position: relative;
 
-  position: absolute;
+    width: 17px;
+    height: 15px;
 
-  top: -19px;
-  right: -19px;
+    background: #888;
 
-  width: 45px;
-  height: 45px;
-
-  background: #111;
-
-  transform: rotate(45deg);
-
-  transition:
-    transform 0.45s
-    cubic-bezier(.2,.7,.2,1);
-
+    clip-path: polygon(
+        50% 0%,
+        100% 100%,
+        0% 100%
+    );
 }
 
+/* CENTRO DEL TRIÁNGULO = TRANSPARENTE */
+
+.corner-triangle span::after {
+    content: "";
+
+    position: absolute;
+
+    left: 2px;
+    top: 2px;
+
+    width: 13px;
+    height: 11px;
+
+    background: #f3f2ee;
+
+    clip-path: polygon(
+        50% 0%,
+        100% 100%,
+        0% 100%
+    );
+}
 
 .corner-triangle:hover span {
-
-  transform:
-    rotate(45deg)
-    scale(1.08);
-
+    transform: scale(1.08);
 }
 
+/* CUANDO ESTÁ ABIERTA LA INFORMACIÓN */
+
+body.artist-open .corner-circle {
+    border-color: #888;
+}
+
+body.artist-open .corner-triangle span {
+    background: #aaa;
+}
+
+body.artist-open .corner-triangle span::after {
+    background: #111;
+}
 
 
 /* ==================================================
@@ -468,17 +477,24 @@ footer a:hover {
 ================================================== */
 
 .artist-panel {
+    position: fixed;
+    inset: 0;
 
-  position: fixed;
+    width: 100vw;
+    height: 100vh;
 
-  top: 0;
-  right: 0;
+    background: #111;
+    color: #f3f2ee;
 
-  width: min(430px, 100vw);
+    z-index: 900;
 
-  height: 100vh;
+    transform: translateY(100%);
+    transition:
+        transform 0.6s cubic-bezier(.2,.7,.2,1);
 
-  background: #111;
+    overflow-y: auto;
+}
+
 
   color: #f3f2ee;
 
@@ -497,7 +513,7 @@ footer a:hover {
 
 .artist-panel.active {
 
-  transform: translateX(0);
+  transform: translateY(0);
 
 }
 
