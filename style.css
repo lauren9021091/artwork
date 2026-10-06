@@ -12,6 +12,7 @@ html {
 
 body {
   margin: 0;
+
   background: #f3f2ee;
   color: #111;
 
@@ -284,7 +285,9 @@ footer a:hover {
 }
 
 
-/* CÍRCULO */
+/* ==================================================
+   CÍRCULO
+================================================== */
 
 .corner-circle {
   position: absolute;
@@ -292,19 +295,91 @@ footer a:hover {
   top: 5px;
   left: 0;
 
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
+
+  padding: 0;
 
   border:
     1.5px solid #777;
 
   border-radius: 50%;
 
-  background: transparent;
+  background: #f3f2ee;
+
+  cursor: default;
+
+  pointer-events: none;
+
+  transition:
+    background .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease,
+    transform .2s ease;
 }
 
 
-/* BOTÓN */
+/*
+  Punto interior.
+  Hace que el círculo parezca un
+  indicador encendido.
+*/
+
+.corner-circle::after {
+  content: "";
+
+  position: absolute;
+
+  left: 3px;
+  top: 3px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #777;
+
+  opacity: .8;
+
+  transition:
+    background .25s ease,
+    opacity .25s ease;
+}
+
+
+/*
+  Cuando se abre la pantalla negra,
+  el círculo se convierte en botón.
+*/
+
+body.artist-open .corner-circle {
+  background: #111;
+
+  border-color: #aaa;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,.04);
+}
+
+body.artist-open .corner-circle::after {
+  background: #f3f2ee;
+
+  opacity: 1;
+}
+
+body.artist-open .corner-circle:hover {
+  transform: scale(1.12);
+}
+
+
+/* ==================================================
+   TRIÁNGULO
+================================================== */
 
 .corner-triangle {
   position: absolute;
@@ -380,16 +455,16 @@ footer a:hover {
     );
 }
 
+
 .corner-triangle:hover span {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 
-/* CUANDO LA PANTALLA NEGRA ESTÁ ABIERTA */
-
-body.artist-open .corner-circle {
-  border-color: #888;
-}
+/*
+  Dentro de la pantalla negra,
+  el triángulo sigue visible.
+*/
 
 body.artist-open .corner-triangle span {
   background: #aaa;
@@ -434,8 +509,6 @@ body.artist-open .corner-triangle span::after {
 }
 
 
-/* CONTENIDO */
-
 .artist-panel-inner {
   min-height: 100%;
 
@@ -450,7 +523,9 @@ body.artist-open .corner-triangle span::after {
 }
 
 
-/* NOMBRE */
+/* ==================================================
+   ARTISTA
+================================================== */
 
 .artist-label {
   display: block;
@@ -466,9 +541,6 @@ body.artist-open .corner-triangle span::after {
   color: #777;
 }
 
-
-/* TÍTULO */
-
 .artist-panel h2 {
   margin:
     0 0 30px;
@@ -482,9 +554,6 @@ body.artist-open .corner-triangle span::after {
 
   line-height: .8;
 }
-
-
-/* DESCRIPCIÓN */
 
 .artist-description {
   max-width: 330px;
@@ -500,7 +569,7 @@ body.artist-open .corner-triangle span::after {
 
 
 /* ==================================================
-   CONTACTO ARTISTA
+   CONTACTO DEL ARTISTA
 ================================================== */
 
 .artist-contact {
@@ -546,41 +615,6 @@ body.artist-open .corner-triangle span::after {
 
 
 /* ==================================================
-   CERRAR PANEL
-================================================== */
-
-.artist-close {
-  position: absolute;
-
-  top: 13px;
-  right: 17px;
-
-  width: 35px;
-  height: 35px;
-
-  padding: 0;
-
-  border: none;
-
-  background: transparent;
-
-  color: #f3f2ee;
-
-  font-size: 27px;
-
-  font-weight: 200;
-
-  cursor: pointer;
-
-  z-index: 950;
-}
-
-.artist-close:hover {
-  opacity: .45;
-}
-
-
-/* ==================================================
    MODAL DE OBRA
 ================================================== */
 
@@ -607,7 +641,9 @@ body.artist-open .corner-triangle span::after {
 }
 
 
-/* BOTÓN CERRAR */
+/* ==================================================
+   CERRAR OBRA
+================================================== */
 
 .close {
   position: fixed;
@@ -661,7 +697,9 @@ body.artist-open .corner-triangle span::after {
 }
 
 
-/* IMAGEN */
+/* ==================================================
+   IMAGEN DEL MODAL
+================================================== */
 
 .modal-image {
   min-width: 0;
@@ -688,7 +726,9 @@ body.artist-open .corner-triangle span::after {
 }
 
 
-/* INFORMACIÓN */
+/* ==================================================
+   INFORMACIÓN MODAL
+================================================== */
 
 .modal-info {
   padding:
@@ -725,7 +765,9 @@ body.artist-open .corner-triangle span::after {
 }
 
 
-/* DETALLES */
+/* ==================================================
+   DETALLES
+================================================== */
 
 .details {
   display: flex;
@@ -757,7 +799,7 @@ body.artist-open .corner-triangle span::after {
 
 
 /* ==================================================
-   CONTACTO MODAL
+   CONTACTO DE LA OBRA
 ================================================== */
 
 .modal-contact {
@@ -889,9 +931,9 @@ body.artist-open .corner-triangle span::after {
   .contact-links {
     justify-content: flex-start;
 
-    flex-direction: column;
+    flex-direction: row;
 
-    gap: 8px;
+    gap: 15px;
   }
 
 
@@ -901,17 +943,26 @@ body.artist-open .corner-triangle span::after {
     top: 10px;
     right: 12px;
 
-    width: 42px;
+    width: 47px;
     height: 42px;
   }
 
 
   .corner-circle {
-    top: 12px;
+    top: 13px;
     left: 0;
 
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
+  }
+
+
+  .corner-circle::after {
+    left: 2px;
+    top: 2px;
+
+    width: 4px;
+    height: 4px;
   }
 
 
@@ -984,7 +1035,7 @@ body.artist-open .corner-triangle span::after {
 
 
 /* ==================================================
-   REDUCIR ANIMACIONES SI EL SISTEMA LO PIDE
+   MENOS ANIMACIÓN
 ================================================== */
 
 @media (prefers-reduced-motion: reduce) {
