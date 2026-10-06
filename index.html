@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>9021091c — Obra</title>
 
@@ -11,61 +17,241 @@
     content="Portafolio de obra artística de 9021091c."
   >
 
-  <link rel="stylesheet" href="style.css">
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
 
 <body>
 
-  <!-- =========================
+
+  <!-- ==================================================
+       MENÚ GEOMÉTRICO
+  =================================================== -->
+
+  <div class="corner-menu">
+
+
+    <!-- CÍRCULO -->
+
+    <div class="corner-circle"></div>
+
+
+    <!-- TRIÁNGULO -->
+
+    <button
+      class="corner-triangle"
+      id="artistToggle"
+      aria-label="Abrir información del artista"
+      type="button"
+    >
+
+      <span></span>
+
+    </button>
+
+
+  </div>
+
+
+
+  <!-- ==================================================
+       PANEL DEL ARTISTA
+  =================================================== -->
+
+  <aside
+    class="artist-panel"
+    id="artistPanel"
+    aria-hidden="true"
+  >
+
+
+    <!-- BOTÓN CERRAR -->
+
+    <button
+      class="artist-close"
+      id="artistClose"
+      aria-label="Cerrar información"
+      type="button"
+    >
+      ×
+    </button>
+
+
+
+    <div class="artist-panel-inner">
+
+
+      <!-- PARTE SUPERIOR -->
+
+      <div>
+
+
+        <span class="artist-label">
+          9021091c
+        </span>
+
+
+        <h2>
+          artista
+        </h2>
+
+
+        <p class="artist-description">
+
+          Pintura, dibujo y mural.
+          Una práctica centrada en la
+          figura, la observación y la
+          experimentación con distintos
+          materiales.
+
+        </p>
+
+
+      </div>
+
+
+
+      <!-- CONTACTO -->
+
+      <div class="artist-contact">
+
+
+        <span>
+          contacto
+        </span>
+
+
+        <!-- EMAIL -->
+
+        <a
+          href="mailto:lauren9021091@gmail.com"
+        >
+          lauren9021091@gmail.com
+        </a>
+
+
+        <!-- WHATSAPP -->
+
+        <a
+          href="https://wa.me/56961856698"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          +56 9 6185 6698 · WhatsApp
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+          href="https://instagram.com/9021091c"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @9021091c
+        </a>
+
+
+      </div>
+
+
+    </div>
+
+
+  </aside>
+
+
+
+  <!-- ==================================================
        HEADER
-  ========================== -->
+  =================================================== -->
 
   <header class="header">
 
-    <a href="#" class="logo">
+
+    <a
+      href="#"
+      class="logo"
+    >
       9021091c
     </a>
 
+
     <nav>
-      <a href="#obra">obra</a>
-      <a href="#contacto">contacto</a>
+
+
+      <a href="#obra">
+        obra
+      </a>
+
+
+      <a href="#contacto">
+        contacto
+      </a>
+
+
     </nav>
+
 
   </header>
 
 
-  <!-- =========================
-       CONTENIDO PRINCIPAL
-  ========================== -->
+
+  <!-- ==================================================
+       CONTENIDO
+  =================================================== -->
 
   <main>
 
-    <!-- INTRO -->
+
+    <!-- ==================================================
+         INTRO
+    =================================================== -->
 
     <section class="intro">
 
+
       <div>
-        <h1>obra</h1>
+
+        <h1>
+          obra
+        </h1>
+
       </div>
 
+
       <p>
+
         Pintura, dibujo y mural.<br>
         Selección de obra.
+
       </p>
+
 
     </section>
 
 
-    <!-- =========================
-         GALERÍA
-    ========================== -->
 
-    <section class="gallery" id="obra">
+    <!-- ==================================================
+         GALERÍA
+    =================================================== -->
+
+    <section
+      class="gallery"
+      id="obra"
+    >
 
 
       <!-- 01 -->
 
-      <article class="artwork" data-id="0">
+      <article
+        class="artwork"
+        data-id="0"
+      >
 
         <img
           src="images/01.jpg"
@@ -80,9 +266,13 @@
       </article>
 
 
+
       <!-- 02 -->
 
-      <article class="artwork" data-id="1">
+      <article
+        class="artwork"
+        data-id="1"
+      >
 
         <img
           src="images/02.jpg"
@@ -97,9 +287,13 @@
       </article>
 
 
+
       <!-- 03 -->
 
-      <article class="artwork" data-id="2">
+      <article
+        class="artwork"
+        data-id="2"
+      >
 
         <img
           src="images/03.jpg"
@@ -114,9 +308,13 @@
       </article>
 
 
+
       <!-- 04 -->
 
-      <article class="artwork" data-id="3">
+      <article
+        class="artwork"
+        data-id="3"
+      >
 
         <img
           src="images/04.jpg"
@@ -131,9 +329,13 @@
       </article>
 
 
+
       <!-- 05 -->
 
-      <article class="artwork" data-id="4">
+      <article
+        class="artwork"
+        data-id="4"
+      >
 
         <img
           src="images/05.jpg"
@@ -148,9 +350,13 @@
       </article>
 
 
+
       <!-- 06 -->
 
-      <article class="artwork" data-id="5">
+      <article
+        class="artwork"
+        data-id="5"
+      >
 
         <img
           src="images/06.jpg"
@@ -165,9 +371,13 @@
       </article>
 
 
+
       <!-- 07 -->
 
-      <article class="artwork" data-id="6">
+      <article
+        class="artwork"
+        data-id="6"
+      >
 
         <img
           src="images/07.jpg"
@@ -182,9 +392,13 @@
       </article>
 
 
+
       <!-- 08 -->
 
-      <article class="artwork" data-id="7">
+      <article
+        class="artwork"
+        data-id="7"
+      >
 
         <img
           src="images/08.jpg"
@@ -199,9 +413,13 @@
       </article>
 
 
+
       <!-- 09 -->
 
-      <article class="artwork" data-id="8">
+      <article
+        class="artwork"
+        data-id="8"
+      >
 
         <img
           src="images/09.jpg"
@@ -216,9 +434,13 @@
       </article>
 
 
+
       <!-- 10 -->
 
-      <article class="artwork" data-id="9">
+      <article
+        class="artwork"
+        data-id="9"
+      >
 
         <img
           src="images/10.jpg"
@@ -233,9 +455,13 @@
       </article>
 
 
+
       <!-- 11 -->
 
-      <article class="artwork" data-id="10">
+      <article
+        class="artwork"
+        data-id="10"
+      >
 
         <img
           src="images/11.jpg"
@@ -250,9 +476,13 @@
       </article>
 
 
+
       <!-- 12 -->
 
-      <article class="artwork" data-id="11">
+      <article
+        class="artwork"
+        data-id="11"
+      >
 
         <img
           src="images/12.jpg"
@@ -267,9 +497,13 @@
       </article>
 
 
+
       <!-- 13 -->
 
-      <article class="artwork" data-id="12">
+      <article
+        class="artwork"
+        data-id="12"
+      >
 
         <img
           src="images/13.jpg"
@@ -284,9 +518,13 @@
       </article>
 
 
+
       <!-- 14 -->
 
-      <article class="artwork" data-id="13">
+      <article
+        class="artwork"
+        data-id="13"
+      >
 
         <img
           src="images/14.jpg"
@@ -301,9 +539,13 @@
       </article>
 
 
+
       <!-- 15 -->
 
-      <article class="artwork" data-id="14">
+      <article
+        class="artwork"
+        data-id="14"
+      >
 
         <img
           src="images/15.jpg"
@@ -318,9 +560,13 @@
       </article>
 
 
+
       <!-- 16 -->
 
-      <article class="artwork" data-id="15">
+      <article
+        class="artwork"
+        data-id="15"
+      >
 
         <img
           src="images/16.jpg"
@@ -335,9 +581,13 @@
       </article>
 
 
+
       <!-- 17 -->
 
-      <article class="artwork" data-id="16">
+      <article
+        class="artwork"
+        data-id="16"
+      >
 
         <img
           src="images/17.jpg"
@@ -352,9 +602,13 @@
       </article>
 
 
+
       <!-- 18 -->
 
-      <article class="artwork" data-id="17">
+      <article
+        class="artwork"
+        data-id="17"
+      >
 
         <img
           src="images/18.jpg"
@@ -369,9 +623,13 @@
       </article>
 
 
+
       <!-- 19 -->
 
-      <article class="artwork" data-id="18">
+      <article
+        class="artwork"
+        data-id="18"
+      >
 
         <img
           src="images/19.jpg"
@@ -386,9 +644,13 @@
       </article>
 
 
+
       <!-- 20 -->
 
-      <article class="artwork" data-id="19">
+      <article
+        class="artwork"
+        data-id="19"
+      >
 
         <img
           src="images/20.jpg"
@@ -406,11 +668,13 @@
     </section>
 
 
-    <!-- =========================
-         CONTACTO
-    ========================== -->
+
+    <!-- ==================================================
+         FOOTER
+    =================================================== -->
 
     <footer id="contacto">
+
 
       <div>
         © 2026 9021091c
@@ -419,9 +683,12 @@
 
       <div class="contact-links">
 
+
         <!-- EMAIL -->
 
-        <a href="mailto:lauren9021091@gmail.com">
+        <a
+          href="mailto:lauren9021091@gmail.com"
+        >
           lauren9021091@gmail.com
         </a>
 
@@ -447,16 +714,20 @@
           Instagram
         </a>
 
+
       </div>
 
+
     </footer>
+
 
   </main>
 
 
-  <!-- =========================
+
+  <!-- ==================================================
        MODAL DE OBRA
-  ========================== -->
+  =================================================== -->
 
   <div
     class="modal"
@@ -464,15 +735,18 @@
     aria-hidden="true"
   >
 
-    <!-- BOTÓN CERRAR -->
+
+    <!-- CERRAR -->
 
     <button
       class="close"
       id="close"
       aria-label="Cerrar"
+      type="button"
     >
       ×
     </button>
+
 
 
     <div class="modal-content">
@@ -491,12 +765,14 @@
       </div>
 
 
+
       <!-- INFORMACIÓN -->
 
       <div class="modal-info">
 
 
         <div>
+
 
           <span
             class="number"
@@ -561,26 +837,27 @@
 
           </div>
 
+
         </div>
 
 
-        <!-- CONTACTO DEL MODAL -->
+
+        <!-- CONTACTO -->
 
         <div class="modal-contact">
+
 
           <span>
             Contacto
           </span>
 
 
-          <!-- EMAIL -->
-
-          <a href="mailto:lauren9021091@gmail.com">
+          <a
+            href="mailto:lauren9021091@gmail.com"
+          >
             lauren9021091@gmail.com
           </a>
 
-
-          <!-- WHATSAPP -->
 
           <a
             href="https://wa.me/56961856698"
@@ -591,8 +868,6 @@
           </a>
 
 
-          <!-- INSTAGRAM -->
-
           <a
             href="https://instagram.com/9021091c"
             target="_blank"
@@ -601,19 +876,25 @@
             @9021091c
           </a>
 
+
         </div>
 
 
       </div>
 
+
     </div>
 
+
   </div>
+
 
 
   <!-- JAVASCRIPT -->
 
   <script src="script.js"></script>
 
+
 </body>
+
 </html>
