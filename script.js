@@ -1,3 +1,7 @@
+/* ==================================================
+   DATOS DE LAS OBRAS
+================================================== */
+
 const artworks = [
 
   {
@@ -163,128 +167,255 @@ const artworks = [
 ];
 
 
-const modal = document.getElementById("modal");
+/* ==================================================
+   ELEMENTOS DEL MODAL
+================================================== */
 
-const modalImage = document.getElementById("modalImage");
-const modalNumber = document.getElementById("modalNumber");
-const modalTitle = document.getElementById("modalTitle");
-const modalTechnique = document.getElementById("modalTechnique");
-const modalDimensions = document.getElementById("modalDimensions");
-const modalYear = document.getElementById("modalYear");
+const modal =
+  document.getElementById("modal");
 
-const closeButton = document.getElementById("close");
+const modalImage =
+  document.getElementById("modalImage");
 
-const artworkElements = document.querySelectorAll(".artwork");
+const modalNumber =
+  document.getElementById("modalNumber");
 
+const modalTitle =
+  document.getElementById("modalTitle");
 
-/* =========================
-   OPEN ARTWORK
-========================= */
+const modalTechnique =
+  document.getElementById("modalTechnique");
 
-artworkElements.forEach((artwork, index) => {
+const modalDimensions =
+  document.getElementById("modalDimensions");
 
-  artwork.addEventListener("click", () => {
+const modalYear =
+  document.getElementById("modalYear");
 
-    const work = artworks[index];
+const closeButton =
+  document.getElementById("close");
 
-    modalImage.src = "images/" + work.image;
-
-    modalImage.alt = work.title;
-
-    modalNumber.textContent =
-      "OBRA " + String(index + 1).padStart(2, "0");
-
-    modalTitle.textContent = work.title;
-
-    modalTechnique.textContent = work.technique;
-
-    modalDimensions.textContent = work.dimensions;
-
-    modalYear.textContent = work.year;
-
-    modal.classList.add("active");
-
-    document.body.style.overflow = "hidden";
-
-  });
-
-});
+const artworkElements =
+  document.querySelectorAll(".artwork");
 
 
-/* =========================
-   CLOSE
-========================= */
+/* ==================================================
+   ABRIR UNA OBRA
+================================================== */
+
+artworkElements.forEach(
+  (artwork, index) => {
+
+    artwork.addEventListener(
+      "click",
+      () => {
+
+        const work =
+          artworks[index];
+
+        modalImage.src =
+          "images/" + work.image;
+
+        modalImage.alt =
+          work.title;
+
+        modalNumber.textContent =
+          "OBRA " +
+          String(index + 1)
+            .padStart(2, "0");
+
+        modalTitle.textContent =
+          work.title;
+
+        modalTechnique.textContent =
+          work.technique;
+
+        modalDimensions.textContent =
+          work.dimensions;
+
+        modalYear.textContent =
+          work.year;
+
+        modal.classList.add("active");
+
+        modal.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+        document.body.style.overflow =
+          "hidden";
+
+      }
+    );
+
+  }
+);
+
+
+/* ==================================================
+   CERRAR OBRA
+================================================== */
 
 function closeModal() {
 
   modal.classList.remove("active");
 
-  document.body.style.overflow = "";
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.style.overflow =
+    "";
 
 }
 
 
-closeButton.addEventListener("click", closeModal);
+closeButton.addEventListener(
+  "click",
+  closeModal
+);
 
 
-/* CLICK OUTSIDE */
+/* ==================================================
+   CERRAR OBRA AL HACER CLICK FUERA
+================================================== */
 
-modal.addEventListener("click", (event) => {
+modal.addEventListener(
+  "click",
+  (event) => {
 
-  if (event.target === modal) {
+    if (
+      event.target === modal
+    ) {
 
-    closeModal();
+      closeModal();
 
-  }
-
-});
-
-
-/* ESC */
-
-document.addEventListener("keydown", (event) => {
-
-  if (event.key === "Escape") {
-
-    closeModal();
+    }
 
   }
+);
 
-});
-/* =========================
+
+/* ==================================================
    PANEL DEL ARTISTA
-========================= */
+================================================== */
 
-const artistToggle = document.getElementById("artistToggle");
-const artistPanel = document.getElementById("artistPanel");
-const artistClose = document.getElementById("artistClose");
+const artistToggle =
+  document.getElementById(
+    "artistToggle"
+  );
+
+const artistPanel =
+  document.getElementById(
+    "artistPanel"
+  );
+
+const artistClose =
+  document.getElementById(
+    "artistClose"
+  );
+
 
 function openArtistPanel() {
-    artistPanel.classList.add("active");
-    artistPanel.setAttribute("aria-hidden", "false");
 
-    document.body.classList.add("artist-open");
-    document.body.style.overflow = "hidden";
+  /*
+    Si una obra estaba abierta,
+    la cerramos primero.
+  */
+
+  closeModal();
+
+  artistPanel.classList.add(
+    "active"
+  );
+
+  artistPanel.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.classList.add(
+    "artist-open"
+  );
+
+  document.body.style.overflow =
+    "hidden";
+
 }
+
 
 function closeArtistPanel() {
-    artistPanel.classList.remove("active");
-    artistPanel.setAttribute("aria-hidden", "true");
 
-    document.body.classList.remove("artist-open");
-    document.body.style.overflow = "";
+  artistPanel.classList.remove(
+    "active"
+  );
+
+  artistPanel.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "artist-open"
+  );
+
+  document.body.style.overflow =
+    "";
+
 }
 
-artistToggle.addEventListener("click", openArtistPanel);
 
-artistClose.addEventListener("click", closeArtistPanel);
+/*
+  TRIÁNGULO:
+  abre la información.
+*/
+
+artistToggle.addEventListener(
+  "click",
+  openArtistPanel
+);
 
 
-/* ESC PARA CERRAR */
+/*
+  X:
+  cierra la información.
+*/
 
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
+artistClose.addEventListener(
+  "click",
+  closeArtistPanel
+);
+
+
+/* ==================================================
+   TECLA ESC
+================================================== */
+
+document.addEventListener(
+  "keydown",
+  (event) => {
+
+    if (
+      event.key === "Escape"
+    ) {
+
+      if (
+        artistPanel.classList.contains(
+          "active"
+        )
+      ) {
+
         closeArtistPanel();
-    }
-});
 
+      } else {
+
+        closeModal();
+
+      }
+
+    }
+
+  }
+);
