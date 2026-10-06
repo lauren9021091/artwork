@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nombre del artista</title>
+
+  <meta
+    name="description"
+    content="Portafolio de obra artística de Nombre del artista."
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="#" class="logo">NOMBRE</a>
+
+    <nav>
+      <a href="#obra">Obra</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+
+  <!-- INTRO -->
+  <main>
+
+    <section class="intro">
+      <div>
+        <h1>Obra</h1>
+      </div>
+
+      <p>
+        Pintura, dibujo y técnica mixta.<br>
+        Selección de obra.
+      </p>
+    </section>
+
+
+    <!-- GALERÍA -->
+    <section class="gallery" id="obra">
+
+      <article class="artwork" data-id="0">
+        <img src="images/01.jpg" alt="Tetera">
+        <div class="artwork-name">Tetera</div>
+      </article>
+
+      <article class="artwork" data-id="1">
+        <img src="images/02.jpg" alt="Figura I">
+        <div class="artwork-name">Figura I</div>
+      </article>
+
+      <article class="artwork" data-id="2">
+        <img src="images/03.jpg" alt="Tres figuras">
+        <div class="artwork-name">Tres figuras</div>
+      </article>
+
+      <article class="artwork" data-id="3">
+        <img src="images/04.jpg" alt="Retrato I">
+        <div class="artwork-name">Retrato I</div>
+      </article>
+
+      <article class="artwork" data-id="4">
+        <img src="images/05.jpg" alt="Músicos">
+        <div class="artwork-name">Músicos</div>
+      </article>
+
+      <article class="artwork" data-id="5">
+        <img src="images/06.jpg" alt="Músico">
+        <div class="artwork-name">Músico</div>
+      </article>
+
+      <article class="artwork" data-id="6">
+        <img src="images/07.jpg" alt="Arquitectura I">
+        <div class="artwork-name">Arquitectura I</div>
+      </article>
+
+      <article class="artwork" data-id="7">
+        <img src="images/08.jpg" alt="Figura II">
+        <div class="artwork-name">Figura II</div>
+      </article>
+
+      <article class="artwork" data-id="8">
+        <img src="images/09.jpg" alt="Escena I">
+        <div class="artwork-name">Escena I</div>
+      </article>
+
+      <article class="artwork" data-id="9">
+        <img src="images/10.jpg" alt="Paisaje urbano">
+        <div class="artwork-name">Paisaje urbano</div>
+      </article>
+
+      <article class="artwork" data-id="10">
+        <img src="images/11.jpg" alt="Retrato II">
+        <div class="artwork-name">Retrato II</div>
+      </article>
+
+      <article class="artwork" data-id="11">
+        <img src="images/12.jpg" alt="Retrato III">
+        <div class="artwork-name">Retrato III</div>
+      </article>
+
+      <article class="artwork" data-id="12">
+        <img src="images/13.jpg" alt="Dos figuras">
+        <div class="artwork-name">Dos figuras</div>
+      </article>
+
+      <article class="artwork" data-id="13">
+        <img src="images/14.jpg" alt="Corazón">
+        <div class="artwork-name">Corazón</div>
+      </article>
+
+      <article class="artwork" data-id="14">
+        <img src="images/15.jpg" alt="Gato">
+        <div class="artwork-name">Gato</div>
+      </article>
+
+      <article class="artwork" data-id="15">
+        <img src="images/16.jpg" alt="Figura III">
+        <div class="artwork-name">Figura III</div>
+      </article>
+
+      <article class="artwork" data-id="16">
+        <img src="images/17.jpg" alt="Retrato IV">
+        <div class="artwork-name">Retrato IV</div>
+      </article>
+
+      <article class="artwork" data-id="17">
+        <img src="images/18.jpg" alt="Caballos">
+        <div class="artwork-name">Caballos</div>
+      </article>
+
+      <article class="artwork" data-id="18">
+        <img src="images/19.jpg" alt="Tetera II">
+        <div class="artwork-name">Tetera II</div>
+      </article>
+
+      <article class="artwork" data-id="19">
+        <img src="images/20.jpg" alt="Figura IV">
+        <div class="artwork-name">Figura IV</div>
+      </article>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+    <footer id="contacto">
+
+      <div>
+        © 2026 NOMBRE
+      </div>
+
+      <div class="contact-links">
+        <a href="mailto:correo@email.com">
+          correo@email.com
+        </a>
+
+        <a href="https://instagram.com/tuusuario" target="_blank">
+          Instagram
+        </a>
+      </div>
+
+    </footer>
+
+  </main>
+
+
+  <!-- MODAL / OBRA INDIVIDUAL -->
+
+  <div class="modal" id="modal">
+
+    <button class="close" id="close">
+      ×
+    </button>
+
+    <div class="modal-content">
+
+      <div class="modal-image">
+        <img id="modalImage" src="" alt="">
+      </div>
+
+      <div class="modal-info">
+
+        <span class="number" id="modalNumber">
+          OBRA 01
+        </span>
+
+        <h2 id="modalTitle">
+          Título
+        </h2>
+
+        <div class="details">
+
+          <div>
+            <span>Técnica</span>
+            <p id="modalTechnique">
+              —
+            </p>
+          </div>
+
+          <div>
+            <span>Dimensiones</span>
+            <p id="modalDimensions">
+              —
+            </p>
+          </div>
+
+          <div>
+            <span>Año</span>
+            <p id="modalYear">
+              —
+            </p>
+          </div>
+
+        </div>
+
+        <div class="modal-contact">
+
+          <span>Contacto</span>
+
+          <a href="mailto:correo@email.com">
+            correo@email.com
+          </a>
+
+          <a href="https://instagram.com/tuusuario" target="_blank">
+            @tuusuario
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
