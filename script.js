@@ -6,118 +6,22 @@ const artworks = [
 
   {
     image: "01.jpg",
-    title: "Tetera",
-    technique: "Óleo / técnica mixta",
-    dimensions: "30 × 24 cm",
+    title: "Mongol con águila",
+    technique: "Esmalte al agua sobre pandereta",
+    dimensions: "2,0 × 2,0 m",
     year: "2025"
   },
 
   {
-    image: "02.jpg",
-    title: "Figura I",
-    technique: "Tinta sobre papel",
-    dimensions: "29 × 21 cm",
+    image: "02.jpeg",
+    title: "Retrato niño 6",
+    technique: "Pastel al óleo sobre madera",
+    dimensions: "25 × 25 cm",
     year: "2025"
   },
 
   {
     image: "03.jpg",
-    title: "Tres figuras",
-    technique: "Pastel sobre papel",
-    dimensions: "30 × 24 cm",
-    year: "2025"
-  },
-
-  {
-    image: "04.jpg",
-    title: "Retrato I",
-    technique: "Técnica mixta",
-    dimensions: "30 × 24 cm",
-    year: "2025"
-  },
-
-  {
-    image: "05.jpg",
-    title: "Músicos",
-    technique: "Tinta sobre papel",
-    dimensions: "30 × 24 cm",
-    year: "2025"
-  },
-
-  {
-    image: "06.jpg",
-    title: "Músico",
-    technique: "Pastel sobre papel",
-    dimensions: "30 × 24 cm",
-    year: "2025"
-  },
-
-  {
-    image: "07.jpg",
-    title: "Arquitectura I",
-    technique: "Acuarela",
-    dimensions: "30 × 24 cm",
-    year: "2025"
-  },
-
-  {
-    image: "08.jpg",
-    title: "Figura II",
-    technique: "Acuarela y tinta",
-    dimensions: "30 × 24 cm",
-    year: "2025"
-  },
-
-  {
-    image: "09.jpg",
-    title: "Escena I",
-    technique: "Técnica mixta",
-    dimensions: "30 × 24 cm",
-    year: "2025"
-  },
-
-  {
-    image: "10.jpg",
-    title: "Paisaje urbano",
-    technique: "Óleo / técnica mixta",
-    dimensions: "30 × 24 cm",
-    year: "2025"
-  },
-
-  {
-    image: "11.jpg",
-    title: "Retrato II",
-    technique: "Tinta",
-    dimensions: "21 × 29 cm",
-    year: "2025"
-  },
-
-  {
-    image: "12.jpg",
-    title: "Retrato III",
-    technique: "Técnica mixta",
-    dimensions: "30 × 24 cm",
-    year: "2025"
-  },
-
-  {
-    image: "13.jpg",
-    title: "Dos figuras",
-    technique: "Tinta sobre papel",
-    dimensions: "30 × 24 cm",
-    year: "2025"
-  },
-
-  {
-    image: "14.jpg",
-    title: "Corazón",
-    technique: "Técnica mixta",
-    dimensions: "30 × 24 cm",
-    year: "2025"
-  },
-
-  {
-    image: "15.jpg",
     title: "Gato",
     technique: "Tinta sobre papel",
     dimensions: "30 × 24 cm",
@@ -125,43 +29,43 @@ const artworks = [
   },
 
   {
-    image: "16.jpg",
-    title: "Figura III",
-    technique: "Óleo / técnica mixta",
+    image: "04.jpg",
+    title: "Jam 1",
+    technique: "Acuarelas",
+    dimensions: "30 × 24 cm",
+    year: "2026"
+  },
+
+  {
+    image: "05.jpg",
+    title: "Saxofonista 1",
+    technique: "Acuarelas",
+    dimensions: "30 × 24 cm",
+    year: "2026"
+  },
+
+  {
+    image: "06.jpg",
+    title: "Mujer comiendo",
+    technique: "Acrílicos sobre papel canson mixed media 300 gr/cm2",
     dimensions: "30 × 24 cm",
     year: "2025"
   },
 
   {
-    image: "17.jpg",
-    title: "Retrato IV",
-    technique: "Técnica mixta",
-    dimensions: "30 × 24 cm",
+    image: "07.jpg",
+    title: "Tetera 2",
+    technique: "Esmalte al agua sobre pandereta",
+    dimensions: "2,0 × 2,0 m",
     year: "2025"
   },
 
   {
-    image: "18.jpg",
-    title: "Caballos",
-    technique: "Tinta sobre papel",
-    dimensions: "30 × 24 cm",
+    image: "08.jpg",
+    title: "Niño 9",
+    technique: "Esmalte al agua sobre pandereta",
+    dimensions: "2,0 × 2,0 m",
     year: "2025"
-  },
-
-  {
-    image: "19.jpg",
-    title: "Tetera II",
-    technique: "Óleo / técnica mixta",
-    dimensions: "30 × 24 cm",
-    year: "2025"
-  },
-
-  {
-    image: "20.jpg",
-    title: "Figura IV",
-    technique: "Tinta sobre papel",
-    dimensions: "30 × 24 cm",
-    year: "2024"
   }
 
 ];
@@ -195,8 +99,83 @@ const modalYear =
 const closeButton =
   document.getElementById("close");
 
+const prevArtworkButton =
+  document.getElementById("prevArtwork");
+
+const nextArtworkButton =
+  document.getElementById("nextArtwork");
+
 const artworkElements =
   document.querySelectorAll(".artwork");
+
+const artworkLabels =
+  document.querySelectorAll(
+    ".artwork-name"
+  );
+
+let currentArtworkIndex = 0;
+
+artworkLabels.forEach(
+  (label, index) => {
+
+    const work = artworks[index];
+
+    if (!work) {
+      return;
+    }
+
+    label.textContent = work.title;
+
+    const image =
+      artworkElements[index]
+        .querySelector("img");
+
+    if (image) {
+      image.alt = work.title;
+    }
+
+  }
+);
+
+
+/* ==================================================
+   CARGAR UNA OBRA
+================================================== */
+
+function showArtwork(index) {
+
+  currentArtworkIndex = index;
+
+  const work = artworks[index];
+
+  if (!work) {
+    return;
+  }
+
+  modalImage.src =
+    "images/" + work.image;
+
+  modalImage.alt =
+    work.title;
+
+  modalNumber.textContent =
+    "OBRA " +
+    String(index + 1)
+      .padStart(2, "0");
+
+  modalTitle.textContent =
+    work.title;
+
+  modalTechnique.textContent =
+    work.technique;
+
+  modalDimensions.textContent =
+    work.dimensions;
+
+  modalYear.textContent =
+    work.year;
+
+}
 
 
 /* ==================================================
@@ -210,35 +189,7 @@ artworkElements.forEach(
       "click",
       () => {
 
-        const work =
-          artworks[index];
-
-        if (!work) {
-          return;
-        }
-
-        modalImage.src =
-          "images/" + work.image;
-
-        modalImage.alt =
-          work.title;
-
-        modalNumber.textContent =
-          "OBRA " +
-          String(index + 1)
-            .padStart(2, "0");
-
-        modalTitle.textContent =
-          work.title;
-
-        modalTechnique.textContent =
-          work.technique;
-
-        modalDimensions.textContent =
-          work.dimensions;
-
-        modalYear.textContent =
-          work.year;
+        showArtwork(index);
 
         modal.classList.add(
           "active"
@@ -260,6 +211,38 @@ artworkElements.forEach(
 
 
 /* ==================================================
+   NAVEGAR ENTRE OBRAS
+================================================== */
+
+prevArtworkButton.addEventListener(
+  "click",
+  () => {
+
+    const previousIndex =
+      (currentArtworkIndex - 1 +
+        artworks.length) %
+      artworks.length;
+
+    showArtwork(previousIndex);
+
+  }
+);
+
+nextArtworkButton.addEventListener(
+  "click",
+  () => {
+
+    const nextIndex =
+      (currentArtworkIndex + 1) %
+      artworks.length;
+
+    showArtwork(nextIndex);
+
+  }
+);
+
+
+/* ==================================================
    CERRAR OBRA
 ================================================== */
 
@@ -275,7 +258,7 @@ function closeModal() {
   );
 
   document.body.style.overflow =
-    "";
+    "hidden";
 
 }
 
@@ -378,7 +361,7 @@ function closeArtistPanel() {
   );
 
   document.body.style.overflow =
-    "";
+    "hidden";
 
 }
 

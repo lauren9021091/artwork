@@ -21,6 +21,8 @@ body {
     Helvetica,
     sans-serif;
 
+  overflow: hidden;
+
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -86,12 +88,18 @@ img {
 
 main {
   width: 100%;
-  max-width: 1600px;
+  max-width: none;
 
-  margin: 0 auto;
+  height: 100vh;
+
+  margin: 0;
 
   padding:
-    95px 15px 50px;
+    60px 0 56px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
 }
 
 
@@ -149,21 +157,35 @@ main {
   display: grid;
 
   grid-template-columns:
-    repeat(4, 1fr);
+    repeat(4, minmax(0, 1fr));
 
-  gap: 7px;
+  column-gap:
+    clamp(20px, 2.6vw, 36px);
+
+  row-gap:
+    clamp(34px, 5vw, 58px);
+
+  padding:
+    0 24px;
+
+  height:
+    calc(100vh - 60px - 72px);
+
+  align-content: center;
 }
 
 .artwork {
   position: relative;
 
+  width: 72%;
+  justify-self: center;
   aspect-ratio: 1 / 1;
 
   overflow: hidden;
 
   cursor: pointer;
 
-  background: #ddd;
+  background: transparent;
 }
 
 .artwork img {
@@ -171,6 +193,8 @@ main {
 
   width: 100%;
   height: 100%;
+
+  margin: 0;
 
   object-fit: cover;
 
@@ -223,10 +247,17 @@ main {
 ================================================== */
 
 footer {
-  margin-top: 25px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
 
   padding:
-    20px 8px;
+    20px 24px;
 
   border-top:
     1px solid #d4d2cc;
@@ -241,6 +272,9 @@ footer {
   color: #777;
 
   font-size: 10px;
+
+  background: #f3f2ee;
+  z-index: 10;
 }
 
 footer a {
@@ -320,43 +354,14 @@ footer a:hover {
 
 
 /*
-  Punto interior.
-  Hace que el círculo parezca un
-  indicador encendido.
-*/
-
-.corner-circle::after {
-  content: "";
-
-  position: absolute;
-
-  left: 3px;
-  top: 3px;
-
-  width: 7px;
-  height: 7px;
-
-  border-radius: 50%;
-
-  background: #777;
-
-  opacity: .8;
-
-  transition:
-    background .25s ease,
-    opacity .25s ease;
-}
-
-
-/*
   Cuando se abre la pantalla negra,
   el círculo se convierte en botón.
 */
 
 body.artist-open .corner-circle {
-  background: #111;
+  background: #222;
 
-  border-color: #aaa;
+  border-color: #777;
 
   cursor: pointer;
 
@@ -364,12 +369,6 @@ body.artist-open .corner-circle {
 
   box-shadow:
     0 0 0 3px rgba(255,255,255,.04);
-}
-
-body.artist-open .corner-circle::after {
-  background: #f3f2ee;
-
-  opacity: 1;
 }
 
 body.artist-open .corner-circle:hover {
@@ -527,6 +526,31 @@ body.artist-open .corner-triangle span::after {
    ARTISTA
 ================================================== */
 
+.artist-main {
+  width: 100%;
+  max-width: 700px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 330px)
+    minmax(180px, 200px);
+
+  align-items: center;
+  justify-content: center;
+  justify-items: start;
+  column-gap: 140px;
+
+  margin: 0 auto;
+}
+
+.artist-text {
+  width: 100%;
+  max-width: 330px;
+
+  text-align: left;
+}
+
 .artist-label {
   display: block;
 
@@ -555,6 +579,19 @@ body.artist-open .corner-triangle span::after {
   line-height: .8;
 }
 
+.artist-portrait {
+  width: min(100%, 200px);
+  height: 300px;
+
+  object-fit: cover;
+
+  display: block;
+
+  margin-left: 80px;
+
+  border-radius: 4px;
+}
+
 .artist-description {
   max-width: 330px;
 
@@ -573,14 +610,17 @@ body.artist-open .corner-triangle span::after {
 ================================================== */
 
 .artist-contact {
+  width: 100%;
+  max-width: 650px;
+
   display: flex;
 
   flex-direction: column;
-
-  align-items: flex-start;
+  align-items: stretch;
 
   gap: 8px;
 
+  margin: 0 auto;
   padding-top: 25px;
 
   border-top:
@@ -588,7 +628,8 @@ body.artist-open .corner-triangle span::after {
 }
 
 .artist-contact > span {
-  margin-bottom: 10px;
+  width: 100%;
+  margin-bottom: 0;
 
   font-size: 9px;
 
@@ -599,18 +640,45 @@ body.artist-open .corner-triangle span::after {
   color: #777;
 }
 
+.contact-row {
+  display: grid;
+
+  grid-template-columns:
+    90px minmax(0, 1fr);
+
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-label {
+  color: #aaa;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
 .artist-contact a {
+  display: block;
+
   color: #f3f2ee;
 
   text-decoration: none;
 
   font-size: 12px;
+  line-height: 1.6;
 
-  transition: opacity .2s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  transition:
+    opacity .2s ease,
+    color .2s ease;
 }
 
 .artist-contact a:hover {
-  opacity: .45;
+  opacity: .75;
+  color: #fff;
 }
 
 
@@ -649,7 +717,7 @@ body.artist-open .corner-triangle span::after {
   position: fixed;
 
   top: 15px;
-  right: 22px;
+  left: 22px;
 
   width: 40px;
   height: 40px;
@@ -673,6 +741,54 @@ body.artist-open .corner-triangle span::after {
 
 .close:hover {
   opacity: .5;
+}
+
+
+/* ==================================================
+   NAVEGACIÓN MODAL
+================================================== */
+
+.modal-nav {
+  position: fixed;
+
+  top: 50%;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+
+  background: rgba(17,17,17,.7);
+  color: white;
+
+  font-size: 32px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 600;
+
+  transform: translateY(-50%);
+
+  transition:
+    background .2s ease,
+    border-color .2s ease;
+}
+
+.modal-nav:hover {
+  background: rgba(17,17,17,.9);
+  border-color: rgba(255,255,255,.55);
+}
+
+.modal-nav-prev {
+  left: 22px;
+}
+
+.modal-nav-next {
+  right: 22px;
 }
 
 
@@ -846,21 +962,11 @@ body.artist-open .corner-triangle span::after {
    RESPONSIVE
 ================================================== */
 
-@media (min-width: 1200px) {
-
-  .gallery {
-    grid-template-columns:
-      repeat(5, 1fr);
-  }
-
-}
-
-
 @media (max-width: 900px) {
 
   .gallery {
     grid-template-columns:
-      repeat(3, 1fr);
+      repeat(4, minmax(0, 1fr));
   }
 
 }
@@ -878,7 +984,7 @@ body.artist-open .corner-triangle span::after {
 
   main {
     padding:
-      82px 7px 35px;
+      82px 0 35px;
   }
 
 
@@ -904,9 +1010,9 @@ body.artist-open .corner-triangle span::after {
 
   .gallery {
     grid-template-columns:
-      repeat(2, 1fr);
+      repeat(4, minmax(0, 1fr));
 
-    gap: 5px;
+    gap: 8px;
   }
 
 
@@ -920,7 +1026,7 @@ body.artist-open .corner-triangle span::after {
 
   footer {
     padding:
-      20px 7px;
+      20px 24px;
 
     flex-direction: column;
 
@@ -954,15 +1060,6 @@ body.artist-open .corner-triangle span::after {
 
     width: 9px;
     height: 9px;
-  }
-
-
-  .corner-circle::after {
-    left: 2px;
-    top: 2px;
-
-    width: 4px;
-    height: 4px;
   }
 
 
@@ -1028,7 +1125,15 @@ body.artist-open .corner-triangle span::after {
 
   .close {
     top: 8px;
-    right: 13px;
+    left: 13px;
+  }
+
+  .modal-nav-prev {
+    left: 10px;
+  }
+
+  .modal-nav-next {
+    right: 10px;
   }
 
 }
