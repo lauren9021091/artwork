@@ -13,7 +13,7 @@ const artworks = [
   },
 
   {
-    image: "02.jpeg",
+    image: "02.jpg",
     title: "Retrato niño 6",
     technique: "Pastel al óleo sobre madera",
     dimensions: "25 × 25 cm",
