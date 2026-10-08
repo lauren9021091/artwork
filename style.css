@@ -512,12 +512,11 @@ body.artist-open .corner-triangle span::after {
   min-height: 100%;
 
   padding:
-    95px 38px 35px;
+    68px clamp(24px, 8vw, 110px) 22px;
 
   display: flex;
 
   flex-direction: column;
-
   justify-content: space-between;
 }
 
@@ -528,33 +527,41 @@ body.artist-open .corner-triangle span::after {
 
 .artist-main {
   width: 100%;
-  max-width: 700px;
+  max-width: 1000px;
 
   display: grid;
 
   grid-template-columns:
-    minmax(0, 330px)
-    minmax(180px, 200px);
+    minmax(0, 1fr)
+    minmax(140px, 180px);
 
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   justify-items: start;
-  column-gap: 140px;
+  column-gap: clamp(32px, 6vw, 70px);
 
   margin: 0 auto;
 }
 
 .artist-text {
   width: 100%;
-  max-width: 330px;
+  max-width: 750px;
 
   text-align: left;
+}
+
+.artist-info-block {
+  margin-bottom: 18px;
+}
+
+.artist-info-block:last-child {
+  margin-bottom: 0;
 }
 
 .artist-label {
   display: block;
 
-  margin-bottom: 25px;
+  margin-bottom: 8px;
 
   font-size: 10px;
 
@@ -567,43 +574,42 @@ body.artist-open .corner-triangle span::after {
 
 .artist-panel h2 {
   margin:
-    0 0 30px;
+    0 0 18px;
 
   font-size:
-    clamp(55px, 8vw, 90px);
+    clamp(34px, 4.5vw, 56px);
 
   font-weight: 400;
 
   letter-spacing: -.07em;
 
-  line-height: .8;
+  line-height: .82;
 }
 
 .artist-portrait {
-  width: min(100%, 200px);
-  height: 300px;
+  width: min(100%, 180px);
+  height: 245px;
 
   object-fit: cover;
 
   display: block;
 
-  margin-left: 80px;
+  margin-left: 0;
 
   border-radius: 4px;
 }
 
 .artist-description {
-  max-width: 330px;
+  max-width: 750px;
 
   margin: 0;
 
-  font-size: 14px;
+  font-size: 12.5px;
 
-  line-height: 1.55;
+  line-height: 1.45;
 
   color: #aaa;
 }
-
 
 /* ==================================================
    CONTACTO DEL ARTISTA
@@ -611,17 +617,17 @@ body.artist-open .corner-triangle span::after {
 
 .artist-contact {
   width: 100%;
-  max-width: 650px;
+  max-width: 1000px;
 
   display: flex;
 
   flex-direction: column;
   align-items: stretch;
 
-  gap: 8px;
+  gap: 6px;
 
   margin: 0 auto;
-  padding-top: 25px;
+  padding-top: 16px;
 
   border-top:
     1px solid rgba(255,255,255,.18);
